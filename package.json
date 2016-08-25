@@ -1,0 +1,24 @@
+{
+  "name": "phpsevilla",
+  "version": "1.0.0",
+  "description": "PHP Sevilla website",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miguelbemartin/phpsevilla.git"
+  },
+  "author": "Miguel Angel Martin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miguelbemartin/phpsevilla/issues"
+  },
+  "homepage": "https://github.com/miguelbemartin/phpsevilla#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-minify-css": "^1.2.4"
+  }
+}

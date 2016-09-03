@@ -53,8 +53,19 @@ $app->get('/', function () use ($app) {
  */
 $app->get('/community', function () use ($app) {
 
+    // Call API
+    $client = new Client(['base_url' => $app['meetup.host']]);
+
+    $api = $client->get($app['meetup.namecommunity'], [
+        'query' => [
+            'key'  => $app['meetup.apitoken'],
+        ]
+    ]);
+
+    $community = $api->json();
+
     $context = array(
-        'event' => $event,
+        'community' => $community,
     );
 
     return $app['twig']->render('community.twig', $context);
@@ -90,6 +101,17 @@ $app->get('/events', function () use ($app) {
  * Events Controller
  */
 $app->get('/events/{id}', function ($id) use ($app) {
+
+    // Call API
+    $client = new Client(['base_url' => $app['meetup.host']]);
+
+    $api = $client->get($app['meetup.namecommunity'].'/events/'.$id, [
+        'query' => [
+            'token'  => $app['meetup.apitoken'],
+        ]
+    ]);
+
+    $event = $api->json();
 
     $context = array(
         'event' => $event,

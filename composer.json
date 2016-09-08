@@ -31,7 +31,8 @@
 		"doctrine/dbal": "2.2.*",
 		"data-uri/twig-extension": "dev-master",
 		"symfony/yaml": "~2.6",
-		"guzzlehttp/guzzle": "~5.2"
+		"guzzlehttp/guzzle": "~5.2",
+		"j7mbo/twitter-api-php": "dev-master"
 	},
 	"autoload": {
 		"psr-0": { "": "src/" }

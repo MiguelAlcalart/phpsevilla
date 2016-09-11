@@ -1,4 +1,4 @@
 .idea
 vendor
 node_modules
-web/public
+web/assets

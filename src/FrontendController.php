@@ -9,7 +9,6 @@ use GuzzleHttp\Subscriber\Oauth\Oauth1;
 
 $FrontendController = $app['controllers_factory'];
 
-
 /** 
  * Frontend Controller
  */
@@ -70,18 +69,19 @@ $app->get('/', function () use ($app) {
 /** 
  * Community Controller
  */
-$app->get('/community/{page}', function ($page) use ($app) {
+$app->get('/community', function () use ($app) {
+
+    return $app['twig']->render('community.twig');
+
+})->bind('community');
+
+/** 
+ * Community members Controller
+ */
+$app->get('/community/members/{page}', function ($page) use ($app) {
 
     // Call API
     $client = new Client(['base_url' => $app['meetup.host']]);
-
-    $api = $client->get($app['meetup.namecommunity'], [
-        'query' => [
-            'key'  => $app['meetup.apitoken'],
-        ]
-    ]);
-
-    $community = $api->json();
 
     $api = $client->get($app['meetup.namecommunity'].'/members', [
         'query' => [
@@ -96,13 +96,12 @@ $app->get('/community/{page}', function ($page) use ($app) {
     shuffle($members);
 
     $context = array(
-        'community' => $community,
         'members'   => $members,
     );
 
-    return $app['twig']->render('community.twig', $context);
+    return $app['twig']->render('community_members.twig', $context);
 
-})->bind('community')->value('page', 0);;
+})->bind('community_members')->value('page', 0);;
 
 /** 
  * Events Controller

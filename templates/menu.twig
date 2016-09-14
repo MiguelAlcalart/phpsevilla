@@ -1,0 +1,14 @@
+<div class="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1 collapse">
+    <nav>
+        <ul class="nav nav-pills" id="mainNav">
+            <li {% if path('index') == app.request.requestUri %}class="active"{% endif %}>
+            	<a href="{{ path('index') }}">Home</a></li>
+            <li {% if path('community') == app.request.requestUri %}class="active"{% endif %}>
+            	<a href="{{ path('community') }}">Community</a></li>
+            <li {% if path('events') == app.request.requestUri %}class="active"{% endif %}>
+            	<a href="{{ path('events') }}">Events</a></li>
+            <li {% if path('contact') == app.request.requestUri %}class="active"{% endif %}>
+            	<a href="{{ path('contact') }}">Contact</a></li>
+        </ul>
+    </nav>
+</div>

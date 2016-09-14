@@ -1,0 +1,97 @@
+{% extends "base.twig" %}
+
+{% block content %}
+		<div class="body">
+            <header id="header" class="header-narrow header-semi-transparent header-transparent-sticky-deactive header-transparent-bottom-border" data-plugin-options='{"stickyEnabled": true, "stickyEnableOnBoxed": true, "stickyEnableOnMobile": true, "stickyStartAt": 1, "stickySetTop": "1"}'>
+                <div class="header-body">
+                    <div class="header-container container">
+                        <div class="header-row">
+                            <div class="header-column">
+                                <div class="header-logo">
+                                    <a href="{{ path('index') }}">
+                                        <img alt="PHP Sevilla" width="223" height="50" src="{{ app.request.basepath }}/assets/img/phpsevilla.png">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="header-column">
+                                <div class="header-row">
+                                    <div class="header-nav header-nav-dark-dropdown">
+                                        <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+                                            <i class="fa fa-bars"></i>
+                                        </button>
+                                        {% include 'menu.twig' %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div role="main" class="main">
+
+				<section class="page-header custom-product">
+					<div class="container">
+						<div class="row" style="margin-top:80px;min-height:300px">
+							<div class="col-sm-7">
+								<h1><strong>{{ community.next_event.name }}</strong></h1>
+								<p class="lead">{% set datenextevent = community.next_event.time / 1000 %}
+                                    {{ datenextevent|date('F jS \\a\\t g:ia') }}</p>
+                                    <a class="btn btn-lg btn-secondary mb-sm" href="{{ community.link }}/events/{{ community.next_event.id }}">Confirm your assistance</a>
+							</div>
+							<div class="col-sm-5">
+
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <h2>Past <strong>Events</strong></h2>
+
+                            <div class="blog-posts">
+                                {% for event in events %}
+                                {% set dateevent = event.time / 1000 %}
+            					
+                                <article class="post post-medium">
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+
+                                            <div class="post-content">
+
+                                                <h2><a href="{{ path('event', {id: event.id }) }}">{{ event.name }}</a></h2>
+                                                <div class="post-meta">
+                                                    <span><i class="fa fa-calendar"></i> {{ dateevent|date('F jS \\a\\t g:ia') }} </span>
+                                                    <span><i class="fa fa-user"></i>{{ event.yes_rsvp_count }} phperos</span>
+                                                    {% if event.venue is defined %}<span><i class="fa fa-map"></i>{{ event.venue.name }}</span>{% endif %}
+                                                </div>
+
+                                                <p>{{ event.description|striptags|slice(0, 500) }} ...</p>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="post-meta">
+                                                <a href="{{ path('event', {id: event.id }) }}" class="btn btn-xs btn-primary pull-right">Read more...</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </article>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+				</div>
+
+			</div>
+        </div>
+{% endblock %}

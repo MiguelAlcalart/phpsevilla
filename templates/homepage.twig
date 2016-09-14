@@ -1,0 +1,315 @@
+{% extends "base.twig" %}
+
+{% block content %}
+		<div class="body">
+            <header id="header" class="header-narrow header-semi-transparent header-transparent-sticky-deactive header-transparent-bottom-border" data-plugin-options='{"stickyEnabled": true, "stickyEnableOnBoxed": true, "stickyEnableOnMobile": true, "stickyStartAt": 1, "stickySetTop": "1"}'>
+                <div class="header-body">
+                    <div class="header-container container">
+                        <div class="header-row">
+                            <div class="header-column">
+                                <div class="header-logo">
+                                    <a href="{{ path('index') }}">
+                                        <img alt="PHP Sevilla" width="223" height="50" src="{{ app.request.basepath }}/assets/img/phpsevilla.png">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="header-column">
+                                <div class="header-row">
+                                    <div class="header-nav header-nav-dark-dropdown">
+                                        <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+                                            <i class="fa fa-bars"></i>
+                                        </button>
+                                        {% include 'menu.twig' %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div role="main" class="main">
+                <div class="slider-container rev_slider_wrapper" style="height: 760px;">
+                    <div id="revolutionSlider" class="slider rev_slider" data-plugin-revolution-slider data-plugin-options='{"gridwidth": 800, "gridheight": 760}'>
+                        <ul>
+                            <li data-transition="fade">
+                                <img src="{{ app.request.basepath }}/assets/img/13301467_1098660723529094_797501303236421906_o.jpg"  
+                                    alt=""
+                                    data-bgposition="center center" 
+                                    data-bgfit="cover" 
+                                    data-bgrepeat="no-repeat" 
+                                    class="rev-slidebg">
+
+                                <div class="tp-caption featured-label"
+                                    data-x="center"
+                                    data-y="center" data-voffset="-45"
+                                    data-start="500"
+                                    style="z-index: 5"
+                                    data-transform_in="y:[100%];s:500;"
+                                    data-transform_out="opacity:0;s:500;">WELCOME TO OUR GROUP</div>
+
+                                <div class="tp-caption bottom-label"
+                                    data-x="center"
+                                    data-y="center" data-voffset="5"
+                                    data-start="1000"
+                                    data-transform_idle="o:1;"
+                                    data-transform_in="y:[100%];z:0;rZ:-35deg;sX:1;sY:1;skX:0;skY:0;s:600;e:Power4.easeInOut;"
+                                    data-transform_out="opacity:0;s:500;"
+                                    data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
+                                    data-splitin="chars" 
+                                    data-splitout="none" 
+                                    data-responsive_offset="on"
+                                    style="font-size: 23px; line-height: 30px; z-index: 5"
+                                    data-elementdelay="0.05">Join US and ENJOY!</div>
+                            </li>
+
+                            <li data-transition="fade">
+                                <img src="{{ app.request.basepath }}/assets/img/banner-phpsevilla.png"  
+                                    alt=""
+                                    data-bgposition="center center" 
+                                    data-bgfit="cover" 
+                                    data-bgrepeat="no-repeat" 
+                                    class="rev-slidebg">
+
+                                <div class="tp-caption"
+                                    data-x="center" data-hoffset="-200"
+                                    data-y="center" data-voffset="-95"
+                                    data-start="1000"
+                                    style="z-index: 5"
+                                    data-transform_in="x:[-300%];opacity:0;s:500;"><img src="{{ app.request.basepath }}/assets/img/slides/slide-title-border.png" alt=""></div>
+
+                                <div class="tp-caption top-label"
+                                    data-x="center" data-hoffset="0"
+                                    data-y="center" data-voffset="-95"
+                                    data-start="500"
+                                    style="z-index: 5"
+                                    data-transform_in="y:[-300%];opacity:0;s:500;">
+                                    {% set datenextevent = community.next_event.time / 1000 %}
+                                    {{ datenextevent|date('F jS \\a\\t g:ia') }}
+                                </div>
+
+                                <div class="tp-caption"
+                                    data-x="center" data-hoffset="200"
+                                    data-y="center" data-voffset="-95"
+                                    data-start="1000"
+                                    style="z-index: 5"
+                                    data-transform_in="x:[300%];opacity:0;s:500;"><img src="{{ app.request.basepath }}/assets/img/slides/slide-title-border.png" alt=""></div>
+
+                                <div class="tp-caption main-label"
+                                    data-x="center" data-hoffset="0"
+                                    data-y="center" data-voffset="-45"
+                                    data-start="1500"
+                                    data-whitespace="nowrap"                         
+                                    data-transform_in="y:[100%];s:500;"
+                                    data-transform_out="opacity:0;s:500;"
+                                    style="z-index: 5"
+                                    data-mask_in="x:0px;y:0px;">Next Meetup</div>
+
+                                <div class="tp-caption bottom-label"
+                                    data-x="center" data-hoffset="0"
+                                    data-y="center" data-voffset="5"
+                                    data-start="2000"
+                                    style="z-index: 5"
+                                    data-transform_in="y:[100%];opacity:0;s:500;">{{ community.next_event.name }}</div>
+
+                                <a class="tp-caption btn btn-lg btn-primary btn-slider-action"
+                                    data-hash
+                                    data-hash-offset="85"
+                                    href="{{ community.link }}/events/{{ community.next_event.id }}"
+                                    data-x="center" data-hoffset="0"
+                                    data-y="center" data-voffset="80"
+                                    data-start="2200"
+                                    data-whitespace="nowrap"                         
+                                    data-transform_in="y:[100%];s:500;"
+                                    data-transform_out="opacity:0;s:500;"
+                                    style="z-index: 5"
+                                    data-mask_in="x:0px;y:0px;">Get Started Now!</a>
+                                
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="home-intro home-intro-primary" id="home-intro">
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p>
+                                    <span class="text-light"><strong>{{ community.next_event.name }}</strong></span>
+                                    <span class="text-light">{{ datenextevent|date('F jS \\a\\t g:ia') }}</span>
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="get-started">
+                                    <a href="{{ community.link }}/events/{{ community.next_event.id }}" class="btn btn-lg btn-secondary">Join Us!</a>
+                                    <div class="learn-more text-light">or <a href="{{ community.link }}" class="text-light">visit our meetup group</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row mb-lg">
+                        <div class="col-md-12">
+                            <h2 class="word-rotator-title">
+                                If you are a developer programing in <strong>
+                                    <span class="word-rotate" data-plugin-options='{"delay": 2000}'>
+                                        <span class="word-rotate-items">
+                                            <span>php</span>
+                                            <span>symfony</span>
+                                            <span>drupal</span>
+                                            <span>spaghetti code</span>
+                                            <span>wordpress</span>
+                                        </span>
+                                    </span>
+                                </strong>
+                            </h2>
+                        </div>
+                        <div class="col-md-12">
+                            <p class="lead"><strong>PHP Sevilla</strong>, born in july of 2014, with the goal to connect people, working or using <strong>PHP technologies</strong> every day. We are committed to organise a monthly Meetup to not only share our knowledge and experiences but also to have a good time.</p>
+                            <p class="lead">At PHP Sevilla Meetup you will hear about PHP ecosystem, programming and work in general.</p>
+                            <p class="lead" style="font-weight:700">If you want to join us, do not hesitate to show up. You only need to join to our Meetup group at meetup.com and confirm your attendance.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <section class="section section-tertiary mb-none callofpaper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2 class="text-light"><strong>Call</strong> of <strong>Papers</strong></h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <p class="text-light">Have an interesting topic to share?<br />Send us your proposal and beceome the next speaker!</p>
+                            </div>
+                            <div class="col-md-4 col-md-offset-1">
+                                <a class="btn btn-lg btn-secondary mb-sm" href="mailto:helloworld@phpsevilla.com?subject=#PHPSevilla New Proposal">Submit your proposal</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="section section-background section-center mt-none mb-none">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <h2 class="heading-dark mt-xl">@<strong>phpsevilla</strong></h2>
+                                <div class="owl-carousel owl-theme nav-bottom rounded-nav" data-plugin-options='{"items": 1, "loop": false}'>
+                                    {% for tuit in tuits %}
+                                    <div>
+                                        <div class="col-md-12">
+                                            <div class="testimonial testimonial-style-2 testimonial-with-quotes mb-none">
+                                                <blockquote>
+                                                    <p>{{ tuit.text }}</p>
+                                                </blockquote>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="section section-primary mt-none">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h2 class="mb-xs">Lasts <strong>Events</strong></h2>
+                                <div class="row">
+                                    {% for event in events|slice(events|length - 2, 2) %}
+                                    {% set dateevent = event.time / 1000 %}
+                                    <div class="col-md-6">
+                                        <div class="recent-posts mt-xl">
+                                            <article class="post">
+                                                <div class="date">
+                                                    <span class="day">{{ dateevent|date('d') }}</span>
+                                                    <span class="month background-color-secondary">{{ dateevent|date('F') }}</span>
+                                                </div>
+                                                <h4><a class="text-light" href="{{ path('event', {id: event.id }) }}">{{ event.name }}</a></h4>
+                                                <p>{{ event.description|striptags|slice(0, 250) }} ...</p>
+                                                <a href="{{ path('event', {id: event.id }) }}" class="btn btn-secondary mt-md mb-xl">Read More</a>
+                                            </article>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                                <h2 class="mb-xs">Our <strong>Stats</strong></h2>
+
+                                <div class="content-grid content-grid-dashed mt-xlg mb-lg">
+                                    <div class="row content-grid-row">
+                                        <div class="content-grid-item col-md-6 center">
+                                            <div class="counters">
+                                                <div class="counter text-color-light">
+                                                    <strong data-to="{{ community.members }}">0</strong>
+                                                    <label>Community Members</label>
+                                                </div>
+                                            </div>  
+                                        </div>
+                                        <div class="content-grid-item col-md-6 center">
+                                            <div class="counters">
+                                                <div class="counter text-color-light">
+                                                    <strong data-to="{{ events|length }}">0</strong>
+                                                    <label>Total events</label>
+                                                </div>
+                                            </div>  
+                                        </div>
+                                    </div>
+                                    <div class="row content-grid-row">
+                                        <div class="content-grid-item col-md-6 center">
+                                            <div class="counters">
+                                                <div class="counter text-color-light">
+                                                    <strong data-to="{{ asistance }}">0</strong>
+                                                    <label>Total asistance</label>
+                                                </div>
+                                            </div>  
+                                        </div>
+                                        <div class="content-grid-item col-md-6 center">
+                                            <div class="counters">
+                                                <div class="counter text-color-light">
+                                                    <strong data-to="{{ community.next_event.yes_rsvp_count }}">0</strong>
+                                                    <label>Asistance next event</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 center mb-xl">
+                            <h2 class="mt-xl">Our <strong>Sponsors</strong></h2>
+
+                            <div class="owl-carousel owl-theme mb-none" data-plugin-options='{"items": 4, "margin": 0, "loop": true, "autoplay": true, "autoplayTimeout": 3000}'>
+                                <div>
+                                    <img src="{{ app.request.basepath }}/assets/img/sponsors/jetbrains.png" class="img-responsive" alt="">
+                                </div>
+                                <div>
+                                    <img src="{{ app.request.basepath }}/assets/img/sponsors/workincompany.png" class="img-responsive" alt="">
+                                </div>
+                                <div>
+                                    <img src="{{ app.request.basepath }}/assets/img/sponsors/emergya.png" class="img-responsive" alt="">
+                                </div>
+                                <div>
+                                    <img src="{{ app.request.basepath }}/assets/img/sponsors/innn.png" class="img-responsive" alt="">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

@@ -91,7 +91,31 @@ $app->get('/community/members/{page}', function ($page) use ($app) {
         ]
     ]);
 
+    $headers = $api->getHeaders();
+    
+    $total =  $headers['X-Total-Count'][0];
+    
+    $max = 200;
+
     $members = $api->json();
+
+    $it = round($total / $max, 0, PHP_ROUND_HALF_UP);
+
+    for ($i=1; $i < $it; $i++) { 
+
+        $api = $client->get($app['meetup.namecommunity'].'/members', [
+            'query' => [
+                'key'  => $app['meetup.apitoken'],
+                'page' => $max,
+                'offset' => $i
+            ]
+        ]);
+
+        $more = $api->json();
+
+        $members = array_merge($members, $more);
+
+    }
 
     shuffle($members);
 

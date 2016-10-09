@@ -1,0 +1,34 @@
+{
+  "name": "phpsevilla",
+  "version": "1.0.0",
+  "description": "The repository of landing page phpsevilla.com",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miguelbemartin/phpsevilla.git"
+  },
+  "author": "Miguel Ángel Martín",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miguelbemartin/phpsevilla/issues"
+  },
+  "homepage": "https://github.com/miguelbemartin/phpsevilla#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-imagemin": "^3.0.3",
+    "gulp-phpunit": "^0.19.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglifyjs": "^0.6.2",
+    "gulp-util": "^3.0.7",
+    "jquery": "^2.1.0"
+  }
+}

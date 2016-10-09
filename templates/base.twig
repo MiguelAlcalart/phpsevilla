@@ -20,7 +20,7 @@
 
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
     
-        <link rel="stylesheet" href="{{ app.request.basepath }}/assets/css/main.css">
+        <link rel="stylesheet" href="{{ app.request.basepath }}/assets/css/all.css">
 
     </head>
     <body>
@@ -70,7 +70,7 @@
                             <div class="contact-details">
                                 <h4>Contact Us</h4>
                                 <ul class="contact">
-                                    <li><p><i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:helloword@phpsevilla.com">helloword@phpsevilla.com</a></p></li>
+                                    <li><p><i class="fa fa-envelope"></i> <strong>Email:</strong> <a href="mailto:helloworld@phpsevilla.com">helloworld@phpsevilla.com</a></p></li>
                                 </ul>
                             </div>
                         </div>
@@ -108,15 +108,12 @@
                 </div>
             </footer>
 
-        <script src="{{ app.request.basepath }}/assets/js/main.js"></script>
+        <script src="{{ app.request.basepath }}/assets/js/all.js"></script>
 
         <script type="text/javascript">
-
-            $( "#output" ).load( '{{ path("community_members") }}', function() {
-            });
-        
+            $( "#output" ).load( '{{ path("community_members") }}' );
         </script>
-
+        
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

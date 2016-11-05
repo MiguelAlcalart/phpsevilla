@@ -80,11 +80,14 @@ gulp.task('scripts', function () {
         .pipe(gulp.dest('web/assets/js'));
 });
 
-gulp.task('default', ['styles', 'fonts', 'scripts']);
+/**
+ * Images tasks
+ */
+gulp.task('images', function () {
+    gutil.log(gutil.colors.red('Copying the images'));
 
+    return gulp.src(global.assetsDirectory + '/img/*')
+        .pipe(gulp.dest('web/assets/img'));
+});
 
-
-
-
-
-
+gulp.task('default', ['styles', 'fonts', 'scripts', 'images']);

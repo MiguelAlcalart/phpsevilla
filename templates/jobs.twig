@@ -1,0 +1,70 @@
+{% extends "base.twig" %}
+
+{% block content %}
+		<div class="body">
+        <header id="header" class="header-narrow header-semi-transparent header-transparent-sticky-deactive header-transparent-bottom-border" data-plugin-options='{"stickyEnabled": true, "stickyEnableOnBoxed": true, "stickyEnableOnMobile": true, "stickyStartAt": 1, "stickySetTop": "1"}'>
+            <div class="header-body">
+                <div class="header-container container">
+                    <div class="header-row">
+                        <div class="header-column">
+                            <div class="header-logo">
+                                <a href="{{ path('index') }}">
+                                    <img alt="PHP Sevilla" width="223" height="50" src="{{ app.request.basepath }}/assets/img/phpsevilla.png">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="header-column">
+                            <div class="header-row">
+                                <div class="header-nav header-nav-dark-dropdown">
+                                    <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+                                        <i class="fa fa-bars"></i>
+                                    </button>
+                                    {% include 'menu.twig' %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div role="main" class="main">
+
+            <section class="page-header custom-product">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-7" style="margin-top:250px;">
+                            <h1><strong>Jobs</strong></h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+		        <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="blog-posts">
+
+        					          <article class="post post-medium">
+                                <div class="row">
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <div class="post-meta">
+                                            <span><i class="fa fa-calendar"></i> fecha </span>
+                                            <span><i class="fa fa-user"></i> phperos</span>
+                                            <span><i class="fa fa-map"></i>s</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-md-offset-2">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+				  </div>
+    </div>
+</div>
+{% endblock %}

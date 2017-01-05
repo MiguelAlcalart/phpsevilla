@@ -1,8 +1,8 @@
 <?php
 
-class Util
+class Util extends \Twig_Extension
 {
-    public static function getSlug($cadena, $separador = '-')
+    public static function slug($cadena, $separador = '-')
     {
         // Código copiado de http://cubiq.org/the-perfect-php-clean-url-generator
         $slug = iconv('UTF-8', 'ASCII//TRANSLIT', $cadena);
@@ -11,5 +11,17 @@ class Util
         $slug = preg_replace("/[\/_|+ -]+/", $separador, $slug);
 
         return $slug;
+    }
+
+    public function getFilters()
+    {
+        return array(
+            "slug" => new \Twig_Filter_Method($this, "slug"),
+        );
+    }
+
+    public function getName()
+    {
+        return 'util';
     }
 }

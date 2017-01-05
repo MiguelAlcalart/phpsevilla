@@ -61,4 +61,10 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
     return $translator;
 }));
 
+$app["twig"] = $app->share($app->extend("twig", function (\Twig_Environment $twig, Silex\Application $app) {
+    $twig->addExtension(new Util($app));
+
+    return $twig;
+}));
+
 return $app;

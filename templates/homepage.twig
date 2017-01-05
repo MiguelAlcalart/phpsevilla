@@ -33,11 +33,11 @@
                     <div id="revolutionSlider" class="slider rev_slider" data-plugin-revolution-slider data-plugin-options='{"gridwidth": 800, "gridheight": 760}'>
                         <ul>
                             <li data-transition="fade">
-                                <img src="{{ app.request.basepath }}/assets/img/13301467_1098660723529094_797501303236421906_o.jpg"  
+                                <img src="{{ app.request.basepath }}/assets/img/13301467_1098660723529094_797501303236421906_o.jpg"
                                     alt=""
-                                    data-bgposition="center center" 
-                                    data-bgfit="cover" 
-                                    data-bgrepeat="no-repeat" 
+                                    data-bgposition="center center"
+                                    data-bgfit="cover"
+                                    data-bgrepeat="no-repeat"
                                     class="rev-slidebg">
 
                                 <div class="tp-caption featured-label"
@@ -56,19 +56,19 @@
                                     data-transform_in="y:[100%];z:0;rZ:-35deg;sX:1;sY:1;skX:0;skY:0;s:600;e:Power4.easeInOut;"
                                     data-transform_out="opacity:0;s:500;"
                                     data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                                    data-splitin="chars" 
-                                    data-splitout="none" 
+                                    data-splitin="chars"
+                                    data-splitout="none"
                                     data-responsive_offset="on"
                                     style="font-size: 23px; line-height: 30px; z-index: 5"
                                     data-elementdelay="0.05">Join US and ENJOY!</div>
                             </li>
 
                             <li data-transition="fade">
-                                <img src="{{ app.request.basepath }}/assets/img/banner-phpsevilla.png"  
+                                <img src="{{ app.request.basepath }}/assets/img/banner-phpsevilla.png"
                                     alt=""
-                                    data-bgposition="center center" 
-                                    data-bgfit="cover" 
-                                    data-bgrepeat="no-repeat" 
+                                    data-bgposition="center center"
+                                    data-bgfit="cover"
+                                    data-bgrepeat="no-repeat"
                                     class="rev-slidebg">
 
                                 <div class="tp-caption"
@@ -99,7 +99,7 @@
                                     data-x="center" data-hoffset="0"
                                     data-y="center" data-voffset="-45"
                                     data-start="1500"
-                                    data-whitespace="nowrap"                         
+                                    data-whitespace="nowrap"
                                     data-transform_in="y:[100%];s:500;"
                                     data-transform_out="opacity:0;s:500;"
                                     style="z-index: 5"
@@ -119,14 +119,14 @@
                                     data-x="center" data-hoffset="0"
                                     data-y="center" data-voffset="80"
                                     data-start="2200"
-                                    data-whitespace="nowrap"                         
+                                    data-whitespace="nowrap"
                                     data-transform_in="y:[100%];s:500;"
                                     data-transform_out="opacity:0;s:500;"
                                     style="z-index: 5"
                                     data-mask_in="x:0px;y:0px;">Get Started Now!</a>
-                                
+
                             </li>
-                            
+
                         </ul>
                     </div>
                 </div>
@@ -214,7 +214,7 @@
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="section section-primary mt-none">
                     <div class="container">
                         <div class="row">
@@ -230,9 +230,9 @@
                                                     <span class="day">{{ dateevent|date('d') }}</span>
                                                     <span class="month background-color-secondary">{{ dateevent|date('F') }}</span>
                                                 </div>
-                                                <h4><a class="text-light" href="{{ path('event', {id: event.id }) }}">{{ event.name }}</a></h4>
+                                                <h4><a class="text-light" href="{{ path('event', {id: event.id, slug: event.name|slug() }) }}">{{ event.name }}</a></h4>
                                                 <p>{{ event.description|striptags|slice(0, 250) }} ...</p>
-                                                <a href="{{ path('event', {id: event.id }) }}" class="btn btn-secondary mt-md mb-xl">Read More</a>
+                                                <a href="{{ path('event', {id: event.id, slug: event.name|slug() }) }}" class="btn btn-secondary mt-md mb-xl">Read More</a>
                                             </article>
                                         </div>
                                     </div>
@@ -251,7 +251,7 @@
                                                     <strong data-to="{{ community.members }}">0</strong>
                                                     <label>Community Members</label>
                                                 </div>
-                                            </div>  
+                                            </div>
                                         </div>
                                         <div class="content-grid-item col-md-6 center">
                                             <div class="counters">
@@ -259,7 +259,7 @@
                                                     <strong data-to="{{ events|length }}">0</strong>
                                                     <label>Total events</label>
                                                 </div>
-                                            </div>  
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row content-grid-row">
@@ -269,7 +269,7 @@
                                                     <strong data-to="{{ asistance }}">0</strong>
                                                     <label>Total asistance</label>
                                                 </div>
-                                            </div>  
+                                            </div>
                                         </div>
                                         <div class="content-grid-item col-md-6 center">
                                             <div class="counters">

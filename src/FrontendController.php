@@ -9,7 +9,7 @@ use GuzzleHttp\Subscriber\Oauth\Oauth1;
 
 $FrontendController = $app['controllers_factory'];
 
-/** 
+/**
  * Frontend Controller
  */
 $app->get('/', function () use ($app) {
@@ -66,7 +66,7 @@ $app->get('/', function () use ($app) {
 
 })->bind('index');
 
-/** 
+/**
  * Community Controller
  */
 $app->get('/community', function () use ($app) {
@@ -75,7 +75,7 @@ $app->get('/community', function () use ($app) {
 
 })->bind('community');
 
-/** 
+/**
  * Community members Controller
  */
 $app->get('/community/members/{page}', function ($page) use ($app) {
@@ -92,16 +92,16 @@ $app->get('/community/members/{page}', function ($page) use ($app) {
     ]);
 
     $headers = $api->getHeaders();
-    
+
     $total =  $headers['X-Total-Count'][0];
-    
+
     $max = 200;
 
     $members = $api->json();
 
     $it = round($total / $max, 0, PHP_ROUND_HALF_UP);
 
-    for ($i=1; $i < $it; $i++) { 
+    for ($i=1; $i < $it; $i++) {
 
         $api = $client->get($app['meetup.namecommunity'].'/members', [
             'query' => [
@@ -127,7 +127,7 @@ $app->get('/community/members/{page}', function ($page) use ($app) {
 
 })->bind('community_members')->value('page', 0);;
 
-/** 
+/**
  * Events Controller
  */
 $app->get('/events', function () use ($app) {
@@ -161,10 +161,10 @@ $app->get('/events', function () use ($app) {
 
 })->bind('events');
 
-/** 
+/**
  * Event Controller
  */
-$app->get('/events/{id}', function ($id) use ($app) {
+$app->get('/events/{id}/{slug}', function ($id) use ($app) {
 
     // Call API
     $client = new Client(['base_url' => $app['meetup.host']]);
@@ -185,7 +185,7 @@ $app->get('/events/{id}', function ($id) use ($app) {
 
 })->bind('event');
 
-/** 
+/**
  * Jobs Controller
  */
 $app->get('/jobs', function () use ($app) {
@@ -198,7 +198,7 @@ $app->get('/jobs', function () use ($app) {
 
 })->bind('jobs');
 
-/** 
+/**
  * Contact Controller
  */
 $app->get('/contact', function () use ($app) {

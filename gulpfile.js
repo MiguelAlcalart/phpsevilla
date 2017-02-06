@@ -92,4 +92,14 @@ gulp.task('images', function () {
         .pipe(gulp.dest('web/assets/img'));
 });
 
+
+/**
+ * Watch task to check every change in the files
+ */
+gulp.task('watch', function () {
+    gutil.log(gutil.colors.cyan('Watching changes...'));
+
+    return gulp.watch(global.assetsDirectory + '/**/*.*', ['styles', 'scripts']);
+});
+
 gulp.task('default', ['styles', 'fonts', 'scripts', 'images']);

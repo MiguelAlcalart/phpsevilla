@@ -177,8 +177,17 @@ $app->get('/events/{id}/{slug}', function ($id) use ($app) {
 
     $event = $api->json();
 
+    $api = $client->get($app['meetup.namecommunity'].'/events/'.$id.'/photos', [
+        'query' => [
+            'token'  => $app['meetup.apitoken'],
+        ]
+    ]);
+
+    $photos = $api->json();
+
     $context = array(
-        'event' => $event,
+        'event'  => $event,
+        'photos' => $photos,
     );
 
     return $app['twig']->render('event.twig', $context);

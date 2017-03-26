@@ -40,12 +40,12 @@
                     </div>
                 </section>
 
-				<div class="container">
+								<div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="blog-posts">
                                 {% set dateevent = event.time / 1000 %}
-            					<article class="post post-medium">
+            											<article class="post post-medium">
                                     <div class="row">
                                         <div class="col-md-8 col-md-offset-2">
                                             <div class="post-meta">
@@ -60,6 +60,17 @@
                                             <p>{{ event.description|raw }}</p>
                                         </div>
                                     </div>
+																		<div class="row after-event">
+																			{% if event.status == 'past' %}
+																				{% for photo in photos %}
+																					<img src="{{ photo.photo_link }}" alt="">
+																				{% endfor %}
+																			{% else %}
+																			<div class="col-md-8 col-md-offset-2">
+																				<a class="btn btn-lg btn-secondary" href="{{ event.link }}">Register on Meetup</a>
+																			</div>
+																			{% endif %}
+																		</div>
                                 </article>
                             </div>
                         </div>

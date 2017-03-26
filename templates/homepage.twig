@@ -111,20 +111,6 @@
                                     data-start="2000"
                                     style="z-index: 5"
                                     data-transform_in="y:[100%];opacity:0;s:500;">{{ community.next_event.name }}</div>
-
-                                <a class="tp-caption btn btn-lg btn-primary btn-slider-action"
-                                    data-hash
-                                    data-hash-offset="85"
-                                    href="{{ community.link }}/events/{{ community.next_event.id }}"
-                                    data-x="center" data-hoffset="0"
-                                    data-y="center" data-voffset="80"
-                                    data-start="2200"
-                                    data-whitespace="nowrap"
-                                    data-transform_in="y:[100%];s:500;"
-                                    data-transform_out="opacity:0;s:500;"
-                                    style="z-index: 5"
-                                    data-mask_in="x:0px;y:0px;">Get Started Now!</a>
-
                             </li>
 
                         </ul>
@@ -142,7 +128,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="get-started">
-                                    <a href="{{ community.link }}/events/{{ community.next_event.id }}" class="btn btn-lg btn-secondary">Join Us!</a>
+                                    <a href="{{ path('event', {id: community.next_event.id, slug: community.next_event.name|slug() }) }}" class="btn btn-lg btn-secondary">Join Us!</a>
                                     <div class="learn-more text-light">or <a href="{{ community.link }}" class="text-light">visit our meetup group</a></div>
                                 </div>
                             </div>

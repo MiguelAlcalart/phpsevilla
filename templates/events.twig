@@ -33,12 +33,14 @@
 				<section class="page-header custom-product">
 					<div class="container">
 						<div class="row" style="margin-top:80px;min-height:300px">
+							{% if community.next_event is defined %}
 							<div class="col-sm-7">
 								<h1><strong>{{ community.next_event.name }}</strong></h1>
 								<p class="lead">{% set datenextevent = community.next_event.time / 1000 %}
                                     {{ datenextevent|date('F jS \\a\\t g:ia') }}</p>
                                     <a class="btn btn-lg btn-secondary mb-sm" href="{{ community.link }}/events/{{ community.next_event.id }}">Confirm your assistance</a>
 							</div>
+							{% endif %}
 							<div class="col-sm-5">
 
 							</div>

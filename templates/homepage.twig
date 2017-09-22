@@ -63,6 +63,7 @@
                                     data-elementdelay="0.05">Join US and ENJOY!</div>
                             </li>
 
+							{% if community.next_event is defined %}
                             <li data-transition="fade">
                                 <img src="{{ app.request.basepath }}/assets/img/phpsevilla-sevilla02.jpg"
                                     alt=""
@@ -78,6 +79,7 @@
                                     style="z-index: 5"
                                     data-transform_in="x:[-300%];opacity:0;s:500;"><img src="{{ app.request.basepath }}/assets/img/slides/slide-title-border.png" alt=""></div>
 
+
                                 <div class="tp-caption top-label"
                                     data-x="center" data-hoffset="0"
                                     data-y="center" data-voffset="-95"
@@ -87,6 +89,7 @@
                                     {% set datenextevent = community.next_event.time / 1000 %}
                                     {{ datenextevent|date('F jS \\a\\t g:ia') }}
                                 </div>
+
 
                                 <div class="tp-caption"
                                     data-x="center" data-hoffset="200"
@@ -112,6 +115,7 @@
                                     style="z-index: 5"
                                     data-transform_in="y:[100%];opacity:0;s:500;">{{ community.next_event.name }}</div>
                             </li>
+							{% endif %}
 
                         </ul>
                     </div>
@@ -120,19 +124,33 @@
                     <div class="container">
 
                         <div class="row">
-                            <div class="col-md-8">
+                            {% if community.next_event is defined %}
+							<div class="col-md-8">
                                 <p>
                                     <span class="text-light"><strong>{{ community.next_event.name }}</strong></span>
                                     <span class="text-light">{{ datenextevent|date('F jS \\a\\t g:ia') }}</span>
                                 </p>
                             </div>
+							{% else %}
+							<div class="col-md-8">
+                                <p>
+                                    <span class="text-light"><strong>Next event not defined yet</strong></span>
+                                    <span class="text-light">Send your proposal</span>
+                                </p>
+                            </div>
+							{% endif %}
                             <div class="col-md-4">
                                 <div class="get-started">
+									{% if community.next_event is defined %}
                                     <a href="{{ path('event', {id: community.next_event.id, slug: community.next_event.name|slug() }) }}" class="btn btn-lg btn-secondary">Join Us!</a>
+									{% else %}
+									<a href="{{ community.link }}" class="btn btn-lg btn-secondary">Join Us!</a>
+									{% endif %}
                                     <div class="learn-more text-light">or <a href="{{ community.link }}" class="text-light">visit our meetup group</a></div>
                                 </div>
                             </div>
                         </div>
+
 
                     </div>
                 </div>
@@ -260,7 +278,7 @@
                                         <div class="content-grid-item col-md-6 center">
                                             <div class="counters">
                                                 <div class="counter text-color-light">
-                                                    <strong data-to="{{ community.next_event.yes_rsvp_count }}">0</strong>
+                                                    <strong data-to="{% if community.next_event is defined %}{{ community.next_event.yes_rsvp_count }}{% else %}0{% endif %}">0</strong>
                                                     <label>Asistance next event</label>
                                                 </div>
                                             </div>
